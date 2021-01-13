@@ -28,7 +28,12 @@ struct Configs {
     }
     
     
+    // MARK : - UserDefaultKey
     
+    struct UserDefaultKey {
+        
+        static let getLatestDataKey = ""
+    }
     
     
     

@@ -39,7 +39,7 @@ extension AppDelegate {
     
     private func showRootVC() {
         let vc = MainViewController()
-        self.window?.rootViewController = UINavigationController(rootViewController: vc)
+        self.window?.rootViewController = BaseNavigationController(rootViewController: vc)
         self.window?.makeKeyAndVisible()
     }
     
@@ -53,9 +53,14 @@ extension AppDelegate {
                 logDebug(message + "\(Date())")
                 return Api.default.apiSummery()
             }
+            .mapArray()
             .subscribe(onNext: {
                 (result) in
                 self.count += 1
+                
+                //持久化存储
+                let defaults = UserDefaults.standard
+                defaults.setValue(result, forKey: Configs.UserDefaultKey.getLatestDataKey)
                 
                 print(result)
             }).disposed(by: rx.disposeBag)

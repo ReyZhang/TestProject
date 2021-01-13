@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
 
     fileprivate lazy var tableView:UITableView = {
         let tb: UITableView = UITableView(frame: CGRect(), style: UITableView.Style.plain)
@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
         return tb
     }()
     
-    lazy var titles:[String] = ["解析返回结果","调用历史"]
+    lazy var titles:[String] = ["请求结果","调用历史"]
     lazy var scenes:[NavigatorManager.Scene] = [.result, .history]
     
     

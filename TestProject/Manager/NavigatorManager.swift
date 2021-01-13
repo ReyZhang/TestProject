@@ -41,7 +41,7 @@ class NavigatorManager {
         }
         
         
-        if let nav = sender as? UINavigationController {
+        if let nav = sender as? BaseNavigationController {
             nav.pushViewController(target, animated: true)
             return
         }

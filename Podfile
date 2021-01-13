@@ -14,6 +14,11 @@ def pods
   # JSON Mapping
   pod 'HandyJSON'
   
+  # Layout
+  pod 'SnapKit'
+  
+  # Logging日志
+  pod 'CocoaLumberjack/Swift'
   
 end
 

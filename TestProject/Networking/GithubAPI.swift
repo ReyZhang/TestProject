@@ -30,7 +30,7 @@ extension GithubAPI : TargetType {
     }
     
     var method: Moya.Method {
-        return .post
+        return .get
     }
     
     var sampleData: Data {

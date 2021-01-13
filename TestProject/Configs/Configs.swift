@@ -17,6 +17,14 @@ struct Configs {
         static let githubBaseUrl: String = "https://api.github.com"
         // 日志开启
         static let logEnabled = false
+        
+        
+    }
+    
+    // MARK : - 常量 Const
+    struct Const {
+        
+        static let cellDefaultHeight = 44.0
     }
     
     

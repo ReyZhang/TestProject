@@ -13,16 +13,17 @@ class NavigatorManager {
     static var `default` = NavigatorManager()
     init() {}
     
-    enum Scene: String {
-        case result = "result"
-        case history = "history"
+    enum Scene {
+        case result(model:HistoryRecord?)
+        case history
     }
     
     func get(scene: Scene) -> UIViewController? {
         let vc:UIViewController?
         switch scene {
-        case .result:
-            vc = ResultViewController()
+        case .result(let model):
+            vc = ResultViewController(model: model)
+            
         case .history:
             vc = HistoryViewController()
         }

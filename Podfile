@@ -22,6 +22,8 @@ def pods
   # Logging日志
   pod 'CocoaLumberjack/Swift'
   
+  # MJRefresh
+  pod 'MJRefresh'
   
 end
 

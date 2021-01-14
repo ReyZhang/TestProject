@@ -33,6 +33,10 @@
 		7E3A78CC25ADCB7B003DDCEB /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A78CB25ADCB7B003DDCEB /* Networking.swift */; };
 		7E3A78D725ADD167003DDCEB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A78D625ADD167003DDCEB /* Api.swift */; };
 		7E3A78E625ADD52F003DDCEB /* Moya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A78E525ADD52F003DDCEB /* Moya+Extension.swift */; };
+		7EFD175625AFD32300AE2368 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7EFD175425AFD32300AE2368 /* DataModel.xcdatamodeld */; };
+		7EFD17C925AFF1BC00AE2368 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFD17C825AFF1BC00AE2368 /* CoreDataManager.swift */; };
+		7EFD17CE25B013EA00AE2368 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFD17CD25B013EA00AE2368 /* Array+Extension.swift */; };
+		7EFD17D325B0164D00AE2368 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFD17D225B0164D00AE2368 /* String+Extension.swift */; };
 		979F1D1F11869BDD81B48F9A /* Pods_TestProject_TestProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAD6F0B072DBA5605E5E811 /* Pods_TestProject_TestProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +91,10 @@
 		7E3A78CB25ADCB7B003DDCEB /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		7E3A78D625ADD167003DDCEB /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		7E3A78E525ADD52F003DDCEB /* Moya+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Extension.swift"; sourceTree = "<group>"; };
+		7EFD175525AFD32300AE2368 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		7EFD17C825AFF1BC00AE2368 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7EFD17CD25B013EA00AE2368 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		7EFD17D225B0164D00AE2368 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		891BB8778166A43EB752F185 /* Pods-TestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject.release.xcconfig"; path = "Target Support Files/Pods-TestProject/Pods-TestProject.release.xcconfig"; sourceTree = "<group>"; };
 		CC75FB8C63CE6D066D1E453B /* Pods-TestProject-TestProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject-TestProjectTests.release.xcconfig"; path = "Target Support Files/Pods-TestProject-TestProjectTests/Pods-TestProject-TestProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		CDAD6F0B072DBA5605E5E811 /* Pods_TestProject_TestProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestProject_TestProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +144,8 @@
 			children = (
 				7E323D9B25AE85DA00203647 /* Dictionary+Extension.swift */,
 				7E3508F025AEFD02007A9A65 /* NibLoadable.swift */,
+				7EFD17CD25B013EA00AE2368 /* Array+Extension.swift */,
+				7EFD17D225B0164D00AE2368 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -145,6 +155,7 @@
 			children = (
 				7E3508BA25AEE34F007A9A65 /* LogManager.swift */,
 				7E3508D225AEE7B3007A9A65 /* NavigatorManager.swift */,
+				7EFD17C825AFF1BC00AE2368 /* CoreDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 		7E3A786D25AD904C003DDCEB /* TestProject */ = {
 			isa = PBXGroup;
 			children = (
+				7EFD175325AFD2BC00AE2368 /* Data */,
 				7E3508E525AEFCB9007A9A65 /* View */,
 				7E3508D725AEF1C8007A9A65 /* Base */,
 				7E3508B925AEE33F007A9A65 /* Manager */,
@@ -256,6 +268,14 @@
 				7E3A78E525ADD52F003DDCEB /* Moya+Extension.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		7EFD175325AFD2BC00AE2368 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7EFD175425AFD32300AE2368 /* DataModel.xcdatamodeld */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		AE0618753CE933F698F71499 /* Frameworks */ = {
@@ -496,11 +516,15 @@
 				7E3508F725AF21FC007A9A65 /* HistoryTableCell.swift in Sources */,
 				7E3A78C225AD9623003DDCEB /* GithubAPI.swift in Sources */,
 				7E3508E125AEF207007A9A65 /* BaseNavigationController.swift in Sources */,
+				7EFD17D325B0164D00AE2368 /* String+Extension.swift in Sources */,
 				7E323D9C25AE85DA00203647 /* Dictionary+Extension.swift in Sources */,
 				7E3508BB25AEE34F007A9A65 /* LogManager.swift in Sources */,
+				7EFD175625AFD32300AE2368 /* DataModel.xcdatamodeld in Sources */,
 				7E3A78E625ADD52F003DDCEB /* Moya+Extension.swift in Sources */,
 				7E3A78D725ADD167003DDCEB /* Api.swift in Sources */,
 				7E3A78C725ADCB27003DDCEB /* NetworkingType.swift in Sources */,
+				7EFD17CE25B013EA00AE2368 /* Array+Extension.swift in Sources */,
+				7EFD17C925AFF1BC00AE2368 /* CoreDataManager.swift in Sources */,
 				7E3508C325AEE71C007A9A65 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -838,6 +862,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7EFD175425AFD32300AE2368 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7EFD175525AFD32300AE2368 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 7EFD175525AFD32300AE2368 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7E3A786325AD904C003DDCEB /* Project object */;
 }

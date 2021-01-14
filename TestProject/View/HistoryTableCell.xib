@@ -9,15 +9,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="HistoryTableCell" customModule="TestProject" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="0.0" id="KGk-i7-Jjw" customClass="HistoryTableCell" customModule="TestProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLc-Gq-kB5">
+                        <rect key="frame" x="15" y="12.5" width="42.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOH-r4-ovC">
+                        <rect key="frame" x="276.5" y="15.5" width="28.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qLc-Gq-kB5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Kyy-gL-HQM"/>
+                    <constraint firstItem="qLc-Gq-kB5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LjQ-2S-X10"/>
+                    <constraint firstAttribute="trailing" secondItem="cOH-r4-ovC" secondAttribute="trailing" constant="15" id="UGQ-ZJ-TMR"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qLc-Gq-kB5" secondAttribute="trailing" constant="50" id="cFA-nv-NKB"/>
+                    <constraint firstItem="cOH-r4-ovC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nuE-9f-quZ"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="137.68115942028987" y="54.241071428571423"/>
+            <connections>
+                <outlet property="dateLabel" destination="cOH-r4-ovC" id="cPM-rE-vAD"/>
+                <outlet property="nameLabel" destination="qLc-Gq-kB5" id="Y9x-ub-oKQ"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="39.508928571428569"/>
         </tableViewCell>
     </objects>
 </document>

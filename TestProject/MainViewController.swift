@@ -20,7 +20,7 @@ class MainViewController: BaseViewController {
     }()
     
     lazy var titles:[String] = ["请求结果","调用历史"]
-    lazy var scenes:[NavigatorManager.Scene] = [.result, .history]
+    lazy var scenes:[NavigatorManager.Scene] = [.result(model: nil), .history]
     
     
     override func viewDidLoad() {

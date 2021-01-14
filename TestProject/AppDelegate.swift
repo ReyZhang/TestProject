@@ -9,6 +9,16 @@ import UIKit
 import RxSwift
 import NSObject_Rx
 import CocoaLumberjack
+import CoreData
+
+
+var increament = 0  {
+    didSet {
+        let defaults = UserDefaults.standard
+        defaults.setValue("\(oldValue)", forKey: Configs.UserDefaultKey.increamentKey)
+    }
+}
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,12 +29,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIApplication.shared.delegate as? AppDelegate
     }
     
+    
+    
+    lazy var persistentContainer: NSPersistentContainer =  {
+        let container = NSPersistentContainer(name: Configs.Const.dataModelName)
+        container.loadPersistentStores { (description, error) in
+            if let error = error {
+                fatalError("Unable to load persistent stores: \(error)")
+            }
+        }
+        return container
+    }()
+    
+    
     private var count = 0
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
+//        delAll()
+//        readData()
+        
+        let defaults = UserDefaults.standard
+        increament = defaults.integer(forKey: Configs.UserDefaultKey.increamentKey)
+        
         
         taskOne()  //
         initLibs()
@@ -54,13 +83,16 @@ extension AppDelegate {
                 return Api.default.apiSummery()
             }
             .mapArray()
-            .subscribe(onNext: {
+            .subscribe(onNext: { [self]
                 (result) in
                 self.count += 1
                 
-                //持久化存储
+                //持久化存储返回结果
                 let defaults = UserDefaults.standard
                 defaults.setValue(result, forKey: Configs.UserDefaultKey.getLatestDataKey)
+                
+                //存储API调用记录
+                storeCallRecored(result)
                 
                 print(result)
             }).disposed(by: rx.disposeBag)
@@ -79,6 +111,39 @@ extension AppDelegate {
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger)
     }
+    
+    
+    func storeCallRecored(_ result:[Any]) {
+        let manager = CoreDataManager.default
+        let history = manager.getEntity(HistoryRecord.self)
+        //对象赋值
+        increament += 1
+        history.id = Int32(increament)
+        history.apiName = Configs.Network.githubBaseUrl
+        history.result = result.getJsonString()
+        history.createTime = Date()
+        
+        manager.insert()
+        
+    }
+    
+    
+//    func delAll() {
+//        let manager = CoreDataManager.default
+//        manager.deleteAll(HistoryRecord.self)
+//    }
+    
+//    func readData() {
+//        let manager = CoreDataManager.default
+//        if let array = manager.query(HistoryRecord.self) {
+//            for info in array {
+//                print("\(info.result)")
+//            }
+//        }else {
+//            print("aa")
+//        }
+//
+//    }
     
     
 }

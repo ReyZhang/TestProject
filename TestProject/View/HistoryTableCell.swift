@@ -9,15 +9,25 @@ import UIKit
 
 class HistoryTableCell: UITableViewCell {
 
+    
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func bindModel(_ model: HistoryRecord) {
+        self.nameLabel.text = model.apiName
+        let formater = DateFormatter()
+        formater.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        
+        self.dateLabel.text = formater.string(from: model.createTime!)
+        
     }
     
 }

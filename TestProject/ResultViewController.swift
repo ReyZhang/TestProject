@@ -10,6 +10,7 @@ import UIKit
 
 class ResultViewController: BaseViewController {
     
+    private var model : HistoryRecord?
     
     fileprivate lazy var tableView:UITableView = {
         let tb: UITableView = UITableView(frame: CGRect(), style: UITableView.Style.plain)
@@ -20,6 +21,11 @@ class ResultViewController: BaseViewController {
         return tb
     }()
     
+   convenience init(model:HistoryRecord?) {
+        self.init()
+        self.model = model
+    }
+
     
     private lazy var array:[Any] = []
     
@@ -39,8 +45,15 @@ class ResultViewController: BaseViewController {
     }
     
     func loadData() {
-        let defaults = UserDefaults.standard
-        array = defaults.array(forKey: Configs.UserDefaultKey.getLatestDataKey) ?? []
+        
+        if let model = self.model, let result = model.result {
+            array = result.getArrayFromJsonString() ?? []
+        }else {
+            let defaults = UserDefaults.standard
+            array = defaults.array(forKey: Configs.UserDefaultKey.getLatestDataKey) ?? []
+        }
+        
+        
         self.tableView.reloadData()
     }
 }

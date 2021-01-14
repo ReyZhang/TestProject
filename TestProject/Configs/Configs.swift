@@ -25,6 +25,7 @@ struct Configs {
     struct Const {
         
         static let cellDefaultHeight = 44.0
+        static let dataModelName = "DataModel"
     }
     
     
@@ -32,7 +33,8 @@ struct Configs {
     
     struct UserDefaultKey {
         
-        static let getLatestDataKey = ""
+        static let getLatestDataKey = "getLatestDataKey"
+        static let increamentKey = "increamentKey"
     }
     
     

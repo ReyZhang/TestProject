@@ -60,7 +60,7 @@ class CoreDataManager {
         let fetchRequest = NSFetchRequest<T>(entityName:"\(type)")
         
         //sort
-        let sort = NSSortDescriptor(key: "id", ascending: false)
+        let sort = NSSortDescriptor(key: "createTime", ascending: false)
         fetchRequest.sortDescriptors = [sort]
         
         //num
